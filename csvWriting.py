@@ -143,14 +143,14 @@ def getrow(teamId, week, longest_bench, leagueID, season):
 
 # checks if a directory exists with that team name. If it doesn't it asks the user if it wants to create a new directory
 # to store the league data in.
-if not os.path.isdir('./' + league_name + '-League-History'):
-    os.mkdir('./' + league_name + '-League-History')
+if not os.path.isdir('./League-History'):
+    os.mkdir('./League-History')
 
 # from 2022 to 2015
 for season in reversed(range(2015, 2023)):
     print(season)
     season = str(season)
-    path = './' + league_name + '-League-History/' + season  # the path of the folder where the weekly csv files are stored
+    path = './League-History/' + season  # the path of the folder where the weekly csv files are stored
 
     # if that folder doesn't already exist a new one is made
     if not os.path.isdir(path):
@@ -169,7 +169,7 @@ for season in reversed(range(2015, 2023)):
         longest_bench = get_longest_bench(i, number_of_owners=number_of_owners, leagueID=leagueID,
                                           season=season)  # a list containing the length of the longest bench followed by the ID of the team with the longest bench
         header = get_header(i, longest_bench[1], leagueID=leagueID, season=season)  # header for the csv
-        with open('./' + league_name + '-League-History/' + season + '/' + str(i) + '.csv', 'w', newline='') as f:
+        with open('./League-History/' + season + '/' + str(i) + '.csv', 'w', newline='') as f:
             writer = csv.writer(f)
             writer.writerow(header)  # writes header as the first line in the new csv file
             for j in range(1, number_of_owners + 1):  # iterates through every team owner
