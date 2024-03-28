@@ -147,7 +147,7 @@ if not os.path.isdir('./League-History'):
     os.mkdir('./League-History')
 
 # from 2022 to 2015
-for season in reversed(range(2015, 2023)):
+for season in reversed(range(2015, 2024)):
     print(season)
     season = str(season)
     path = './League-History/' + season  # the path of the folder where the weekly csv files are stored
